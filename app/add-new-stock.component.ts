@@ -35,7 +35,6 @@ export class AddNewStockComponent {
   }
 
   addItem(stock:Quote, value) {
-    console.log("")
     this.stocks = [];
     this._stocksService.AddStock({stock:stock, quantity:value});
   }

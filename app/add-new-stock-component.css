@@ -1,0 +1,21 @@
+  .selected {
+    background-color: #CFD8DC !important;
+    color: white;
+  }
+  .stocks {
+    margin: 0 0 2em 0;
+    list-style-type: none;
+    padding: 0;
+  }
+  .stocks li:hover {
+    color: #607D8B;
+    background-color: #DDD;
+    left: .1em;
+  }
+  .stock-price {
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 36px;
+    color: rgba(0,0,0,.54);
+    float:right
+  }

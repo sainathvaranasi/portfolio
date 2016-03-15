@@ -1,2 +1,3 @@
-# portfolio
-Angular 2 Stock Portfolio Tracker
+# Stock Portfolio Tracker
+
+![](https://github.com/paulhoughton/portfolio/blob/gh-pages/screenshot.png)

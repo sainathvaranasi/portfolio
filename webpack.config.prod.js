@@ -2,7 +2,6 @@ require('es6-shim');
 var webpack = require('webpack');
 
 module.exports = {
-  devtool: "cheap-source-map",
   entry: {
     app: './app/main.ts',
     vendor: './app/vendor.ts'
@@ -22,12 +21,17 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'NODE_ENV': '"development"'
+      'NODE_ENV': '"production"'
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       minChunks: Infinity,
       filename: 'vendor.js'
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      mangle: {
+        except: ['RouterLink', 'NgFor', 'NgIf']
+      }
     }),
     new webpack.optimize.DedupePlugin()
   ]

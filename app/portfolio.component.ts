@@ -7,8 +7,9 @@ import {StocksService} from './stocks.service';
 })
 export class GreenRed implements AfterViewInit {
     constructor(private _el: ElementRef) {}
-    ngAfterViewInit(){
-      this._el.nativeElement.style.color = this._el.nativeElement.textContent.substr(0,1)==='-'?'red':'green';
+
+    ngAfterViewInit(): void {
+      this._el.nativeElement.style.color = this._el.nativeElement.textContent.substr(0, 1) === '-' ? 'red' : 'green';
     }
 }
 @Component({
@@ -24,14 +25,15 @@ export class GreenRed implements AfterViewInit {
 export class PortfolioComponent implements OnInit {
 
   stocks: Stock[];
-  
-  constructor(private _stocksService:StocksService) {}
 
-  ngOnInit(){
-    this._stocksService.GetStocks().then(s=>this.stocks=s)
-  }  
-  delete(i:number):void {
-    this._stocksService.DeleteStock(i).then(s=>this.stocks=s);
+  constructor(private _stocksService: StocksService) {}
+
+  ngOnInit(): void {
+    this._stocksService.GetStocks().then(s => this.stocks = s);
+  };
+
+  delete(i: number): void {
+    this._stocksService.DeleteStock(i).then(s => this.stocks = s);
   }
 
 }

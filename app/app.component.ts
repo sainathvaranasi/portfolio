@@ -7,8 +7,8 @@ import {StocksService} from './stocks.service';
 
 @Component({
   selector: 'portfolio-app',
-  styles: [require("./app.component.css")],
-  template: require("./app.component.html"),
+  styles: [require('./app.component.css')],
+  template: require('./app.component.html'),
   directives: [ROUTER_DIRECTIVES],
   providers: [StocksService]
 })
@@ -18,6 +18,6 @@ import {StocksService} from './stocks.service';
   { path: '/About', name: 'About', component: AboutComponent}
 ])
 
-export class AppComponent  { 
-  title = 'Portfolio';
+export class AppComponent  {
+  title: string = 'Portfolio';
 }

@@ -22,16 +22,16 @@ export class StocksService {
     return new Promise((resolve, reject) => {
       var required: string[] = this.stocks.filter(d => !this.stockPrices[d.Symbol]).map(d => d.Symbol);
       this._quoteService.getPrices(required).subscribe(
-      d => Object.assign(this.stockPrices, d),
-      () => console.log('Error'),
-      () => resolve(this.stocks.map(s => (
-          { Symbol: s.Symbol,
-            Name: s.Name,
-            Quantity: s.Quantity,
-            Price: this.stockPrices[s.Symbol].price,
-            Change: this.stockPrices[s.Symbol].change
-          }
-         )
+        d => Object.assign(this.stockPrices, d),
+        () => reject('Error loading data from YAHOO'),
+        () => resolve(this.stocks.map(s => (
+            { Symbol: s.Symbol,
+              Name: s.Name,
+              Quantity: s.Quantity,
+              Price: this.stockPrices[s.Symbol].price,
+              Change: this.stockPrices[s.Symbol].change
+            }
+          )
         ))
       );
     });

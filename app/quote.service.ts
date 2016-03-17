@@ -1,6 +1,7 @@
 import {Injectable} from 'angular2/core';
 import {Jsonp, Http, Response, URLSearchParams} from 'angular2/http';
 import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/observable/empty';
 
 import {Quote, QuoteSearch, StockPrices} from './interfaces';
 

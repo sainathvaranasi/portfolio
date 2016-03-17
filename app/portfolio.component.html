@@ -1,22 +1,25 @@
 <div class="mdl-grid">
-  <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp mdl-cell--8-col-desktop mdl-cell--2-offset-desktop">
-    <thead>
-      <tr>
-        <th class="mdl-data-table__cell--non-numeric">Stock</th>
-        <th>Quantity</th>
-        <th>Latest price</th>
-        <th class="mdl-cell--hide-phone">Value</th>
-        <th class="mdl-cell--hide-phone">Change</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="#stock of stocks; #i = index" (click)="delete(i)">
-        <td class="mdl-data-table__cell--non-numeric">{{stock.Name}}</td>
-        <td>{{stock.Quantity}}</td>
-        <td>{{stock.Price}}</td>
-        <td class="mdl-cell--hide-phone">{{stock.Price*stock.Quantity | number:'1.2-2'}}</td>
-        <td greenRed class="mdl-cell--hide-phone">{{stock.Change}}</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="mdl-cell--8-col-desktop mdl-cell--2-offset-desktop">
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+      <thead>
+        <tr>
+          <th class="mdl-data-table__cell--non-numeric">Stock</th>
+          <th>Quantity</th>
+          <th>Latest price</th>
+          <th class="mdl-cell--hide-phone">Value</th>
+          <th class="mdl-cell--hide-phone">Change</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="#stock of stocks; #i = index" (click)="delete(i)">
+          <td class="mdl-data-table__cell--non-numeric">{{stock.Name}}</td>
+          <td>{{stock.Quantity}}</td>
+          <td>{{stock.Price*1 | number:'1.2-2'}}</td>
+          <td class="mdl-cell--hide-phone">{{stock.Price*stock.Quantity | number:'1.2-2'}}</td>
+          <td greenRed class="mdl-cell--hide-phone">{{stock.Change*1 | number:'1.2-2'}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div [hidden]="!loading" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+  </div>
 </div>
